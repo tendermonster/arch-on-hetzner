@@ -16,15 +16,15 @@ mdadm --stop /dev/md*
 mdadm --zero-superblock /dev/sd*
 
 #get number of partitions
-
 partnum=$(sgdisk -p /dev/sda | awk 'END{print $1}')
 
 #delete all partitions
-
-for ((i=1; i<=$partnum; i++));
-do
-	sgdisk -d $partition /dev/sda
-done
+if [ "partnum" != "Number" ]; then
+	for ((i=1; i<=$partnum; i++));
+	do
+	sgdisk -d $i /dev/sda
+	done
+fi
 
 #setup partitions as u like. 
 #in this example i will use my setup but you are welcome to use other partitioning scheme
