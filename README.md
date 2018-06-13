@@ -5,7 +5,7 @@ Gennerally it also should work on other servers with similar setup.
 
 As for hetzner ender rescue (64bit) mode with given password and restart server. 
 
-After that download script to /tmp with wget -P /tmp "link of the script"
+After that download script to /tmp with wget -P /tmp https://raw.githubusercontent.com/tendermonster/arch-on-hetzner/master/install.sh
 and start with with sh install.sh
 
 DO NOT RUN THIS SCRIPT WITHOUT READING IT! It might need some adjustements 
