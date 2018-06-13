@@ -57,13 +57,13 @@ sgdisk --load-backup=table /dev/sdb
 
 #RAID 1 setup
 
-mdadm --create /dev/md0 --level=1 --raid-devices=2 -f /dev/sd[ab]1
-mdadm --create /dev/md1 --level=1 --raid-devices=2 -f /dev/sd[ab]2
-mdadm --create /dev/md2 --level=1 --raid-devices=2 -f /dev/sd[ab]3
-mdadm --create /dev/md3 --level=1 --raid-devices=2 -f /dev/sd[ab]4
-mdadm --create /dev/md4 --level=1 --raid-devices=2 -f /dev/sd[ab]5
-mdadm --create /dev/md5 --level=1 --raid-devices=2 -f /dev/sd[ab]6
-mdadm --create /dev/md6 --level=1 --raid-devices=2 -f /dev/sd[ab]7
+yes | mdadm --create /dev/md0 --level=1 --raid-devices=2 -f /dev/sd[ab]1
+yes | mdadm --create /dev/md1 --level=1 --raid-devices=2 -f /dev/sd[ab]2
+yes | mdadm --create /dev/md2 --level=1 --raid-devices=2 -f /dev/sd[ab]3
+yes | mdadm --create /dev/md3 --level=1 --raid-devices=2 -f /dev/sd[ab]4
+yes | mdadm --create /dev/md4 --level=1 --raid-devices=2 -f /dev/sd[ab]5
+yes | mdadm --create /dev/md5 --level=1 --raid-devices=2 -f /dev/sd[ab]6
+yes | mdadm --create /dev/md6 --level=1 --raid-devices=2 -f /dev/sd[ab]7
 
 #add current raid config to mdadm.conf
 
