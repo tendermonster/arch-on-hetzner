@@ -1,7 +1,6 @@
-#This is a script i used to successfully install arch linux on an server from hetzner
-
 #!/bin/bash -x
 
+#This is a script i used to successfully install arch linux on an server from hetzner
 #Change this to hostname you like otherwise default will be used
 HOSTNAME=$HOSTNAME #<-- here
 
@@ -71,13 +70,13 @@ mdadm --details --scan >> /etc/mdadm.conf
 
 #format partitions
 
-mkfs.ext2 /dev/md0
-mkfs.ext2 /dev/md1
-mkfs.ext4 /dev/md2
-mkfs.ext4 /dev/md3
-mkfs.ext4 /dev/md4
-mkfs.ext4 /dev/md5
-mkfs.ext4 /dev/md6
+yes | mkfs.ext2 /dev/md0
+yes | mkfs.ext2 /dev/md1
+yes | mkfs.ext4 /dev/md2
+yes | mkfs.ext4 /dev/md3
+yes | mkfs.ext4 /dev/md4
+yes | mkfs.ext4 /dev/md5
+yes | mkfs.ext4 /dev/md6
 
 # INSTALLING BASE SYSTEM
 
