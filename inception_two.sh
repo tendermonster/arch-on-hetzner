@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #inseption #2
 arch-chroot /mnt
 
@@ -50,8 +52,10 @@ systemctl enable sshd
 #from this point on you need to setup some users to login via ssh. 
 #be aware that you cannot login with root via ssh as it is disabled by default
 #also change root password to something
-#passwd
-# useradd -m -g users -G wheel -s /bin/bash username
-# passwd username
+passwd
+useradd -m -g users -G wheel -s /bin/bash tendermonster
+passwd tendermonster
+
+exit
 
 #Congrats you just installed arch linux on hetzner's server
