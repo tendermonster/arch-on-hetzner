@@ -66,7 +66,7 @@ yes | mdadm --create /dev/md6 --level=1 --raid-devices=2 /dev/sd[ab]7
 
 #add current raid config to mdadm.conf
 
-mdadm --details --scan >> /etc/mdadm.conf
+mdadm --detail --scan >> /etc/mdadm.conf
 
 #format partitions
 
@@ -83,7 +83,10 @@ yes | mkfs.ext4 /dev/md6
 #download and unpack bootstrap
 mount /dev/md6 /mnt
 wget -P /mnt http://ftp.uni-bayreuth.de/linux/archlinux/iso/2018.06.01/archlinux-bootstrap-2018.06.01-x86_64.tar.gz 
-tar xzvf /mnt/archlinux-bootstrap-2018.06.01-x86_64.tar.gz -C /mnt
+echo "extracting archlinux-bootstrap"
+tar xzf /mnt/archlinux-bootstrap-2018.06.01-x86_64.tar.gz -C /mnt
+
+#http://ftp.uni-bayreuth.de/linux/archlinux/iso/2018.06.01/archlinux-bootstrap-2018.06.01-x86_64.tar.gz.sig
 
 #entropy for pacman-key
 apt-get install haveged
@@ -94,7 +97,7 @@ haveged -w 1024
 sed -i '/ftp.uni-bayreuth.de/s/^#//' /mnt/root.x86_64/etc/pacman.d/mirrorlist
 
 #inseption
-/mnt/root.x86_64/bin/arch-chroot /mnt/root.x86_64 /bin/bash -c "wget -P /tmp https://raw.githubusercontent.com/tendermonster/arch-on-hetzner/master/inception.sh; bash /tmp/inception.sh"
+/mnt/root.x86_64/bin/arch-chroot /mnt/root.x86_64 /bin/bash -c "curl -o /tmp/inception.sh https://raw.githubusercontent.com/tendermonster/arch-on-hetzner/master/inception.sh; bash /tmp/inception.sh"
 
 #exit
 #exit

@@ -1,8 +1,4 @@
 #!/bin/bash
-
-#inseption #2
-arch-chroot /mnt
-
 #hostname
 touch /etc/hostname
 hostnamectl set-hostname $HOSTNAME

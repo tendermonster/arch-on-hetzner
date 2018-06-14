@@ -24,6 +24,6 @@ pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #inseption #2
-arch-chroot /mnt /bin/bash -c "wget -P /tmp https://raw.githubusercontent.com/tendermonster/arch-on-hetzner/master/inception_two.sh; bash /tmp/inception_two.sh"
+arch-chroot /mnt /bin/bash -c "curl -o /tmp/inception_two.sh https://raw.githubusercontent.com/tendermonster/arch-on-hetzner/master/inception_two.sh; bash /tmp/inception_two.sh"
 
 exit
