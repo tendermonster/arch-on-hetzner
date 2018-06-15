@@ -4,12 +4,12 @@ script that installs arch linux on hetzner server
 
 tested on debian 8.10 (rescue) and arch linux (4.16.13-2)
 
-* My setup:
-efi, gtp, raid1
+My setup:
+* efi, gtp, raid1
 
 Gennerally it also should work on other servers with similar setup.
 
-* How to:
+How to:
 
 Before running this script adjust it to your needs.
 
@@ -19,7 +19,7 @@ Before running this script adjust it to your needs.
 
 3) Download script to /tmp
 
-wget -P /tmp https://raw.githubusercontent.com/tendermonster/arch-on-hetzner/master/install.sh
+* wget -P /tmp https://raw.githubusercontent.com/tendermonster/arch-on-hetzner/master/install.sh
 
 4) Do bash /tmp/install.sh 
 
