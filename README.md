@@ -1,18 +1,26 @@
 # arch-on-hetzner
+
 script that installs arch linux on hetzner server
+
+tested on debian 8.10 (rescue) and arch linux (4.16.13-2)
+
+* My setup:
+efi, gtp, raid1
 
 Gennerally it also should work on other servers with similar setup.
 
-As for hetzner ender rescue (64bit) mode with given password and restart server. 
+* How to:
 
-After that download script to /tmp with
+Before running this script adjust it to your needs.
+
+1) Enter linux rescue (64bit) mode and restart server. 
+
+2) Login via shh to your server with given password
+
+3) Download script to /tmp
 
 wget -P /tmp https://raw.githubusercontent.com/tendermonster/arch-on-hetzner/master/install.sh
 
-and start with with bash install.sh 
+4) Do bash /tmp/install.sh 
 
-(SCRIPE NEED TO BE EXEDUTEN WITH BASH, because sh is a syslink to dash whitch this script is not compatible)
-
-DO NOT RUN THIS SCRIPT WITHOUT READING IT! It might need some adjustements
-
-TODO: It seems that after running chroot it created another shell so fallowing commands cannot execute. Need to find a workaround for this
+If you have any suggestions or ideas on how to improve this script let me know :)

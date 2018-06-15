@@ -1,8 +1,5 @@
 #!/bin/bash
-
 #This is a script i used to successfully install arch linux on an server from hetzner
-#Change this to hostname you like otherwise default will be used
-HOSTNAME=$HOSTNAME #<-- here
 
 #umount
 umount /dev/md*
@@ -40,7 +37,6 @@ sgdisk -n 7:$(sgdisk -f /dev/sda) /dev/sda			#LVM Partition
 
 #set partiton type
 #you can check partiton types with sgdisk -L
-
 sgdisk -t 1:ef02 /dev/sda	#BIOS boot partition
 sgdisk -t 2:ef00 /dev/sda	#EFI System
 sgdisk -t 3:8300 /dev/sda	#linux filesystem
@@ -50,12 +46,10 @@ sgdisk -t 6:8300 /dev/sda	#linux filesystem
 sgdisk -t 7:8e00 /dev/sda	#Linux LVM
 
 # copy partition table to /dev/sdb
-
 sgdisk --backup=table /dev/sda
 sgdisk --load-backup=table /dev/sdb
 
 #RAID 1 setup
-
 yes | mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sd[ab]1
 yes | mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sd[ab]2
 yes | mdadm --create /dev/md2 --level=1 --raid-devices=2 /dev/sd[ab]3
@@ -65,11 +59,9 @@ yes | mdadm --create /dev/md5 --level=1 --raid-devices=2 /dev/sd[ab]6
 yes | mdadm --create /dev/md6 --level=1 --raid-devices=2 /dev/sd[ab]7
 
 #add current raid config to mdadm.conf
-
 mdadm --detail --scan >> /etc/mdadm.conf
 
 #format partitions
-
 yes | mkfs.ext2 /dev/md0
 yes | mkfs.ext2 /dev/md1
 yes | mkfs.ext4 /dev/md2
@@ -93,7 +85,6 @@ apt-get install haveged
 haveged -w 1024
 
 #setup an mirror. You can adopt this like as your needs please 
-
 sed -i '/ftp.uni-bayreuth.de/s/^#//' /mnt/root.x86_64/etc/pacman.d/mirrorlist
 
 #inseption

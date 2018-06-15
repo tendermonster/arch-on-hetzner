@@ -1,7 +1,6 @@
 #!/bin/bash
-
-#hostname
-HOSTNAME=$HOSTNAME
+#Change this to hostname you like otherwise default will be used
+HOSTNAME=$HOSTNAME #<-- here
 echo $HOSTNAME > /etc/hostname
 
 #timezone
@@ -58,12 +57,12 @@ echo 'e1000e' > /etc/modules-load.d/intel.conf
 pacman -S --noconfirm openssh
 systemctl enable sshd.service
 
-#from this point on you need to setup some users to login via ssh. 
-#be aware that you cannot login with root via ssh as it is disabled by default
 #also change root password to something
 passwd
-useradd -m -g users -G wheel -s /bin/bash tendermonster
-passwd tendermonster
+
+#Add user to login via ssh !!
+#useradd -m -g users -G wheel -s /bin/bash username
+#passwd username
 
 exit
 
